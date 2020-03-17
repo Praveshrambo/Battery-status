@@ -34,6 +34,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+		document.getElementById("b1").addEventListener("click", test);
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -47,3 +48,14 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+
+function test()
+{
+	window.addEventListener("batterystatus", onBatteryStatus, false);
+}
+
+ function onBatteryStatus(info)
+ {
+	 alert("BATTERY STATUS:  LEVEL:  " + info.level + " isPlugged: " + info.isPlugged);
+ }
